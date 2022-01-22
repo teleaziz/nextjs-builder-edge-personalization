@@ -12,9 +12,11 @@ export async function getStaticProps({
   params,
 }: GetStaticPropsContext<{ path: string[] }>) {
   const isPersonalizedRequest = params?.path?.[0].startsWith(';')
-  const urlPath = '/' + (params?.path?.join('/') || '');
+  const urlPath = '/' + (params?.path?.join('/') || '')
 
-  const targeting = isPersonalizedRequest ? getTargetingValues(params!.path[0].split(';').slice(1)) : { urlPath };
+  const targeting = isPersonalizedRequest
+    ? getTargetingValues(params!.path[0].split(';').slice(1))
+    : { urlPath }
 
   const page =
     (await builder
@@ -46,7 +48,7 @@ export async function getStaticPaths() {
 
 export default function Path({
   page,
-  targeting
+  targeting,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter()
 
@@ -89,7 +91,12 @@ export default function Path({
           ],
         }}
       />
-      <BuilderComponent context={{ targeting }} renderLink={Link} model="page" content={page} />
+      <BuilderComponent
+        context={{ targeting }}
+        renderLink={Link}
+        model="page"
+        content={page}
+      />
     </>
   )
 }
