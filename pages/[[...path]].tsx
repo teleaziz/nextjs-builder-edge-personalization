@@ -39,6 +39,7 @@ export async function getStaticProps({
 
 export async function getStaticPaths() {
   return {
+    paths: [],
     fallback: true,
   }
 }
@@ -65,7 +66,7 @@ export default function Path({
   }
 
   const { title, description, image } = page?.data! || {}
-  console.log(' here ', targeting);
+
   return (
     <>
       <Head>
@@ -88,7 +89,7 @@ export default function Path({
           ],
         }}
       />
-      <BuilderComponent context={{ targeting }} data={{ targeting , test: true }} renderLink={Link} model="page" content={page} />
+      <BuilderComponent context={{ targeting }} renderLink={Link} model="page" content={page} />
     </>
   )
 }
