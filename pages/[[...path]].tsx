@@ -87,7 +87,7 @@ export default function Path({
           ],
         }}
       />
-      <BuilderComponent context={{ targeting }} renderLink={Link} model="page" content={page} />
+      <BuilderComponent context={{ targeting }} data={{ targeting , test: true }} renderLink={Link} model="page" content={page} />
     </>
   )
 }
