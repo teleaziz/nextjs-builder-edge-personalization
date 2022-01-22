@@ -65,6 +65,7 @@ export default function Path({
   }
 
   const { title, description, image } = page?.data! || {}
+  console.log(' here ', targeting);
   return (
     <>
       <Head>
